@@ -2,7 +2,7 @@ def apply_discount(price, percent):
     """Return the price after a percentage discount."""
     if price < 0 or not 0 <= percent <= 100:
         raise ValueError("invalid price or percent")
-    return round(price * (1 + percent / 100), 2)
+    return round(price * (1 - percent / 100), 2)
 def apply_tax(price, tax_percent):
     """Return the price including tax, rounded to 2 decimals."""
     if price < 0 or tax_percent < 0:
