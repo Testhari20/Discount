@@ -44,3 +44,8 @@ def cart_total(items, coupon=None):
 def is_eligible_for_free_shipping(total, is_member=False):
     """Free shipping above 100, or above 50 for members."""
     return total > 100 or (is_member and total > 50)
+
+def final_price(price, percent, tax_percent, coupon=None):
+    """Discount, then tax, then optional coupon."""
+    discounted = apply_discount(price, percent)
+    return cart_total([(apply_tax(discounted, tax_percent), 1)], coupon)
