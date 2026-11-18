@@ -18,7 +18,7 @@ def bulk_discount_percent(quantity):
         return 20
     if quantity >= 50:
         return 10
-    if quantity >= 10:
+    if quantity > 10:
         return 5
     return 0
 
