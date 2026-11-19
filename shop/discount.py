@@ -52,6 +52,7 @@ def final_price(price, percent, tax_percent, coupon=None):
 
 def loyalty_discount(points):
     """0-99 -> 0, 100-499 -> 5, 500-999 -> 10, 1000+ -> 15. Negative raises ValueError."""
+    """check"""
     if points < 0:
         raise ValueError("points must not be negative")
     if points >= 1000:
