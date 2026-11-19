@@ -49,3 +49,15 @@ def final_price(price, percent, tax_percent, coupon=None):
     """Discount, then tax, then optional coupon."""
     discounted = apply_discount(price, percent)
     return cart_total([(apply_tax(discounted, tax_percent), 1)], coupon)
+
+def loyalty_discount(points):
+    """0-99 -> 0, 100-499 -> 5, 500-999 -> 10, 1000+ -> 15. Negative raises ValueError."""
+    if points < 0:
+        raise ValueError("points must not be negative")
+    if points >= 1000:
+        return 15
+    if points >= 500:
+        return 10
+    if points >= 100:
+        return 5
+    return 0
